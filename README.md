@@ -4,4 +4,6 @@
 
 
  Responsive to 320px
+ 
+
  Sliders are configured using Swiperjs
