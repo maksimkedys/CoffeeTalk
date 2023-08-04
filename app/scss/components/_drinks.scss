@@ -1,0 +1,218 @@
+.drinks {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  @include r($sm) {
+    padding-top: 100px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba($bg, 0.8);
+    backdrop-filter: blur(40.0444450378418px);
+    z-index: -1;
+    @include r($lg) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+  }
+
+  &__container {
+    position: relative;
+  }
+  &__arrows {
+    height: 47px;
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+    outline: 2px solid transparent;
+    transform: translateY(-50%) rotate(-90deg);
+    transition:
+      outline-color 0.4s,
+      opacity 0.4s;
+    &:focus {
+      outline-color: $accent;
+    }
+    &:hover {
+      .drinks__icon {
+        stroke: $accent;
+      }
+    }
+    &:active {
+      opacity: 0.7;
+    }
+    &--prev {
+      left: -70px;
+    }
+    &--next {
+      right: -70px;
+    }
+
+    @include r(1300) {
+      display: none;
+    }
+  }
+  &__icon {
+    stroke: $text;
+    stroke-width: 1.5;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    @include r($xl) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(auto, 320px));
+      gap: 50px;
+    }
+    @include r($md) {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+  }
+
+  &__item {
+    height: 500px;
+  }
+
+  &__top {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s;
+
+    @include r($xl) {
+      visibility: visible;
+      opacity: 1;
+    }
+    @include r($md) {
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__top-title {
+    font-family: "Sitka", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  &__top-box {
+    display: grid;
+    grid-template-columns: repeat(2, 47px);
+    gap: 20px 45px;
+  }
+
+  &__size {
+    border: 1px solid $text;
+  }
+
+  &__price {
+    color: #000000;
+    background-color: $text;
+  }
+
+  &__size,
+  &__price {
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Sitka", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.6px;
+    border-radius: 50%;
+    border: 1px solid $text;
+  }
+
+  &__img {
+    padding: 20px 15px;
+    border: 2px solid #ccb09c;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: padding 1s;
+    @include r($md) {
+      margin: 0 auto;
+    }
+  }
+
+  .swiper-slide {
+    box-sizing: border-box;
+    transform: translateY(-80px);
+    transition:
+      max-width 1s,
+      transform 1s;
+    .drinks__img {
+      padding: 60px 15px;
+    }
+
+    &-active {
+      transform: translateY(10px);
+      .drinks__img {
+        padding: 20px 15px;
+      }
+      .drinks__top {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &-prev,
+    &-next {
+      transform: translateY(-40px);
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    @include r($md) {
+      gap: 20px;
+    }
+  }
+  .swiper-pagination-bullet {
+    width: 17px;
+    height: 17px;
+    background-color: #7c6c59;
+    outline: 2px solid transparent;
+    transition-property: background-color, outline-color, opacity, width, height;
+    transition-duration: 0.4s;
+
+    &:focus {
+      outline-color: $accent;
+    }
+    &:hover {
+      background-color: $accent;
+    }
+    &:active {
+      opacity: 0.7;
+    }
+
+    &-active {
+      width: 25px;
+      height: 25px;
+      color: $text;
+    }
+  }
+
+  .swiper-pagination-vertical.swiper-pagination-bullets {
+    transform: translate3d(0px, 0, 0);
+  }
+}

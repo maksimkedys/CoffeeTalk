@@ -1,0 +1,67 @@
+.footer {
+  padding: 15px 0;
+  background-color: $bg;
+
+  &__top {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 100px;
+    @include r($sm) {
+      gap: 60px;
+    }
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 140px;
+    margin: 0 auto;
+
+    @include r($md) {
+      order: 3;
+    }
+    @include r($sm) {
+      gap: 20px;
+    }
+  }
+  &__menu-item {
+    &:nth-child(3) {
+      grid-row: 2;
+      grid-column: 2;
+    }
+  }
+  &__menu-link {
+    font-size: 14px;
+    color: $nav;
+  }
+
+  &__link {
+    transition: opacity 0.4s;
+    &:focus {
+      opacity: 0.7;
+    }
+    &:hover {
+      .footer__icon {
+        fill: $accent;
+      }
+    }
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &__icon {
+    fill: $text;
+    transition: fill 0.4s;
+  }
+
+  &__bottom {
+    text-align: center;
+  }
+  &__copy {
+    font-size: 14px;
+  }
+}

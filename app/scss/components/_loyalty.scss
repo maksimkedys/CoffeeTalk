@@ -1,0 +1,70 @@
+.loyalty {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba($bg, 0.8);
+    backdrop-filter: blur(40px);
+    z-index: -1;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+  }
+
+  &__text {
+    margin-bottom: 50px;
+    max-width: 355px;
+  }
+
+  &__form {
+    padding: 46px 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba($bg, 0.6);
+    border-radius: 10px;
+  }
+
+  &__label {
+    max-width: 540px;
+    width: 100%;
+    display: block;
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 25px 28px;
+    color: $text;
+    background-color: #3e3128;
+    font-size: 15px;
+    border-radius: 30px;
+    transition: box-shadow 0.4s;
+
+    &::placeholder {
+      color: $text;
+      transition: color 0.4s;
+    }
+
+    &:focus {
+      box-shadow: 0 0 8px $accent;
+    }
+    &:hover {
+      &::placeholder {
+        color: $accent;
+      }
+    }
+  }
+}

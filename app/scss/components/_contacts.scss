@@ -1,0 +1,87 @@
+.contacts {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba($bg, 0.8);
+    backdrop-filter: blur(40px);
+    z-index: -1;
+  }
+
+  &__wrapper {
+    padding-top: 70px;
+    min-height: 726px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: left;
+    z-index: 1;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 200px;
+      width: 50%;
+      background-color: rgba($bg, 0.6);
+      z-index: -1;
+      @include r($lg) {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    @include r($lg) {
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 55px;
+    @include r($lg) {
+      text-align: center;
+    }
+    @include r($sm) {
+      text-align: left;
+    }
+  }
+
+  &__content {
+    max-width: 490px;
+    width: 100%;
+    margin-left: auto;
+    @include r($lg) {
+      margin-left: 0;
+      margin: 0 auto;
+    }
+  }
+
+  &__content-item {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__content-title {
+    margin-bottom: 30px;
+    font-family: "Sitka", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    @include r($sm) {
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
+  }
+
+  &__tel {
+    display: block;
+  }
+}

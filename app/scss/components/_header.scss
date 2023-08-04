@@ -1,0 +1,133 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  transition: background-color 0.4s;
+
+  &--scrolled {
+    background-color: rgba($bg, 0.7);
+  }
+
+  .logo {
+    z-index: 6;
+  }
+}
+
+.menu {
+  max-width: 952px;
+  padding: 33px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include r($sm) {
+    padding: 15px 0;
+  }
+  @media (max-width: 992px) and (orientation: landscape) {
+    padding: 15px 0;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+
+    @include r($lg) {
+      gap: 80px;
+    }
+
+    @include r($md) {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+      background-color: $bg;
+      z-index: 5;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.6s,
+        visibility 0.6s;
+      &--active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    @media (max-width: 992px) and (orientation: landscape) {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+      background-color: $bg;
+      z-index: 5;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.6s,
+        visibility 0.6s;
+      &--active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @include r($sm) {
+      gap: 15px;
+    }
+    @media (max-width: 992px) and (orientation: landscape) {
+      padding-top: 89px;
+      gap: 0;
+      justify-content: flex-start;
+    }
+  }
+
+  &__item {
+    @include r($md) {
+      width: 100%;
+    }
+    @media (max-width: 992px) and (orientation: landscape) {
+      width: 100%;
+    }
+  }
+
+  &__link {
+    color: $nav;
+    font-size: 14px;
+    font-weight: 500;
+
+    @include r($md) {
+      font-size: 22px;
+      display: block;
+      text-align: center;
+      padding: 15px 0;
+    }
+    @media (max-width: 992px) and (orientation: landscape) {
+      font-size: 18px;
+      padding: 10px 0;
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+.burger {
+  @include burger(35px, 22px, 2px, $text);
+  display: none;
+  z-index: 6;
+  @include r($md) {
+    display: block;
+  }
+  @media (max-width: 992px) and (orientation: landscape) {
+    display: block;
+  }
+}

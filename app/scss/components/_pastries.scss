@@ -1,0 +1,139 @@
+.pastries {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    @include r($md) {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+  }
+  &__text {
+    max-width: 335px;
+    width: 100%;
+    @include r($md) {
+      max-width: 100%;
+      margin-bottom: 60px;
+    }
+    p {
+      &:not(:last-child) {
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    @include r($md) {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__img {
+    max-width: 206px;
+  }
+
+  &__arrows {
+    position: relative;
+    height: 47px;
+    border-radius: 50%;
+    outline: 2px solid transparent;
+    transition:
+      outline-color 0.4s,
+      opacity 0.4s;
+    &:focus {
+      outline-color: $accent;
+    }
+    &:hover {
+      .pastries__icon {
+        stroke: $accent;
+      }
+    }
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  &__icon {
+    stroke: $text;
+    stroke-width: 1.5;
+    transition: stroke 0.4s;
+    @include r($md) {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__swiper-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    @include r($md) {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  .swiper {
+    max-width: 630px;
+    max-height: 630px;
+    @include r($md) {
+      max-width: 230px;
+    }
+  }
+
+  .swiper-slide {
+    transition: transform 1s;
+  }
+
+  .swiper-slide-active {
+    transform: scale(1.3);
+    @include r($md) {
+      transform: scale(1);
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+    justify-content: center;
+    @include r($md) {
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: 17px;
+    height: 17px;
+    background-color: #7c6c59;
+
+    &-active {
+      width: 25px;
+      height: 25px;
+      color: $text;
+    }
+  }
+
+  .swiper-pagination-vertical.swiper-pagination-bullets {
+    transform: translate3d(0px, 0, 0);
+  }
+}

@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import "mixins";
+
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.6;
+  color: $text;
+  display: flex;
+  flex-direction: column;
+}
+
+.lock {
+  overflow: hidden;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.title {
+  font-family: "Sitka", sans-serif;
+  color: $text;
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+
+  @include r($md) {
+    font-size: 35px;
+  }
+}
+
+.section {
+  padding: 100px 0;
+
+  @include r($lg) {
+    padding: 80px 0;
+  }
+  @include r($sm) {
+    padding: 50px 0;
+  }
+}
+
+.logo {
+  border-radius: 5px;
+  outline: 2px solid transparent;
+  transition:
+    outline-color 0.4s,
+    opacity 0.4s;
+
+  &:focus {
+    outline-color: $accent;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+  &__img {
+    object-fit: contain;
+  }
+}
+
+.btn {
+  padding: 30px 0;
+  max-width: 237px;
+  width: 100%;
+  position: relative;
+  color: $text;
+  font-weight: 400;
+  border: 2px solid $text;
+  border-radius: 55%;
+  z-index: 3;
+  transition:
+    background-color 0.6s,
+    opacity 0.4s;
+  &::before {
+    content: "";
+    max-width: 237px;
+    width: 100%;
+    max-height: 95px;
+    height: 100%;
+    position: absolute;
+    top: 11px;
+    left: 9px;
+    border-radius: 60%;
+    border: 2px solid #5c3121;
+    z-index: -1;
+    transition: background-color 0.6s;
+  }
+  &--big {
+    max-width: 540px;
+    &::before {
+      top: 8px;
+      left: 0;
+      max-width: 540px;
+    }
+  }
+
+  &:focus {
+    opacity: 0.7;
+  }
+  &:hover {
+    background-color: $text;
+    border-color: #5c3121;
+    &::before {
+      background-color: #5c3121;
+    }
+  }
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.link {
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition:
+    color 0.4s,
+    border-color 0.4s,
+    opacity 0.4s;
+
+  &:focus {
+    border-color: rgba($accent, 0.7);
+  }
+
+  &:hover {
+    color: $accent;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,44 @@
+.about {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  @include r($sm) {
+    padding-top: 100px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 45%;
+    background-color: rgba($bg, 0.6);
+    z-index: -1;
+    @include r($lg) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 70px;
+    @include r($md) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__text {
+    max-width: 444px;
+    width: 100%;
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 60px;
+        @include r($md) {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+}
