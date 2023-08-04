@@ -1,5 +1,28 @@
 $(function () {
 
+  const burger = document.querySelector('.burger');
+  const menu = document.querySelector('.menu__list');
+  const body = document.querySelector('.body')
+
+  function burgerMenu() {
+    burger.classList.toggle("burger--active");
+    menu.classList.toggle("menu__list--active");
+    body.classList.toggle("lock");
+  }
+
+  burger.addEventListener('click', burgerMenu);
+
+  $(window).on("load resize", function () {
+    if ($(window).width() < 769) {
+      $(".menu__link").on('click', burgerMenu);
+    } else {
+      $(".menu__link").on('click', function () {
+        burger.classList.toggle("burger--active");
+        menu.classList.toggle("menu__list--active");
+      });
+    }
+  });
+
   $(window).on('scroll', function () {
     $('.header').toggleClass('header--scrolled', $(window).scrollTop() > 0);
   });
@@ -104,8 +127,12 @@ $(function () {
 
     } else {
 
-      swiper2.destroy();
-      swiper2 = null;
+      try {
+        swiper2.destroy();
+        swiper2 = null;
+      } catch (error) {
+
+      }
       $('.drinks__content').removeClass("swiper");
       $('.drinks__list').removeClass("swiper-wrapper");
       $('.drinks__item').removeClass("swiper-slide");
@@ -113,61 +140,6 @@ $(function () {
   })
 });
 
-const burger = document.querySelector('.burger');
-const menu = document.querySelector('.menu__list');
-const body = document.querySelector('.body');
-
-burger.addEventListener('click', function () {
-  burger.classList.toggle("burger--active");
-  menu.classList.toggle("menu__list--active");
-  body.classList.toggle("lock");
-});
 
 
-// var swiper2 = new Swiper('.drinks__content', {
-//   slidesPerView: 5,
-//   centeredSlides: true,
-//   initialSlide: 2,
-//   spaceBetween: 30,
-//   speed: 1000,
-
-//   pagination: {
-//     el: '.drinks__pagination',
-//     clickable: true,
-//     bulletElement: 'button',
-//   },
-//   navigation: {
-//     prevEl: '.drinks__arrows--prev',
-//     nextEl: '.drinks__arrows--next',
-//   },
-//   keyboard: {
-//     enabled: true,
-//     onlyInViewport: false,
-//   },
-//   mousewheel: {
-//     invert: true,
-//   },
-//   // breakpoints: {
-//   //   1200: {
-
-//   //   },
-//   //   992: {
-//   //     slidesPerView: 5,
-//   //     spaceBetween: 15,
-//   //   },
-//   //   768: {
-//   //     slidesPerView: 4,
-//   //   },
-//   //   576: {
-//   //     slidesPerView: 3,
-//   //   },
-//   //   300: {
-//   //     slidesPerView: 2,
-//   //     spaceBetween: 5,
-//   //     slidesPerGroup: 2,
-//   //     loop: false,
-//   //   }
-//   // }
-// });
-;
 
